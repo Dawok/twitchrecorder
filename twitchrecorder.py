@@ -63,15 +63,15 @@ class TwitchRecorder:
         requests.post(self.discord_webhook_url, json=payload)
 
     def send_stream_start_notification(self):
-        message = f"Stream for [{self.username}](https:///twitch.tv{self.username}) has started!"
+        message = f"Stream for [{self.username}](https://twitch.tv/{self.username}) has started!"
         self.send_discord_message("Stream Started", message, 65280)  # Green color
 
     def send_stream_stop_notification(self):
-        message = f"Stream for [{self.username}](https:///twitch.tv{self.username}) has stopped."
+        message = f"Stream for [{self.username}](https://twitch.tv/{self.username}) has stopped."
         self.send_discord_message("Stream Stopped", message, 16711680)  # Red color
 
     def send_stream_failure_notification(self, error_message):
-        message = f"Stream for [{self.username}](https:///twitch.tv{self.username}) has encountered an error:\n{error_message}"
+        message = f"Stream for [{self.username}](https://twitch.tv/{self.username}) has encountered an error:\n{error_message}"
         self.send_discord_message("Stream Error", message, 16776960)  # Yellow color
 
     def run(self):
